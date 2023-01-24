@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "Trending-KMM"
 include(":androidApp")
 include(":shared")
+include(":sharedMock")

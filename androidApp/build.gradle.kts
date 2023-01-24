@@ -35,6 +35,7 @@ android {
 
 dependencies {
     implementation(project(":shared"))
+    debugImplementation(project(":sharedMock"))
     implementation(libs.composeUi)
     implementation(libs.composeUiTooling)
     implementation(libs.composeUiToolingPreview)

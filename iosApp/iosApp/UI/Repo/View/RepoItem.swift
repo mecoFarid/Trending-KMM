@@ -4,48 +4,49 @@
 //
 //  Created by Farid Mammadov on 07.01.23.
 //
+
+//  import SwiftUI
+//  import shared
 //
-// import SwiftUI
-// import shared
+//  struct RepoItem: View {
 //
-// struct RepoItem: View {
+//      let trending: Trending
+//      @State private var isExpanded: Bool = false
 //
-//     let trending: Trending
-//     @State private var isExpanded: Bool = false
+//      var body: some View {
 //
-//     var body: some View {
-//         VStack(alignment: .leading){
-//             HStack{
-//                 Avatar(url: trending.owner.avatarUrl)
+//          VStack(alignment: .leading){
+//              HStack{
+//                  Avatar(url: trending.owner.avatarUrl)
 //
-//                 VStack(alignment: .leading){
-//                     Text(trending.owner.login)
-//                         .font(.subheadline)
-//                         .lineLimit(1)
+//                  VStack(alignment: .leading){
+//                      Text(trending.owner.login)
+//                          .font(.subheadline)
+//                          .lineLimit(1)
 //
-//                     Text(trending.name)
-//                         .font(.caption)
-//                         .lineLimit(1)
-//                 }
-//                 Spacer()
-//             }
+//                      Text(trending.name)
+//                          .font(.caption)
+//                          .lineLimit(1)
+//                  }
+//                  Spacer()
+//              }
 //
-//             if isExpanded {
-//                 DetailsView(trending: trending)
-//             }
+//              if isExpanded {
+//                  DetailsView(trending: trending)
+//              }
 //
-//         }
-//         .contentShape(Rectangle())
-//         .onTapGesture {
-//             withAnimation{
-//                 isExpanded.toggle()
-//             }
-//         }
-//     }
-// }
+//          }
+//          .contentShape(Rectangle())
+//          .onTapGesture {
+//              withAnimation{
+//                  isExpanded.toggle()
+//              }
+//          }
+//      }
+//  }
 //
-// struct RepoItem_Previews: PreviewProvider {
-//     static var previews: some View {
-//         RepoItem(trending: anyTrending())
-//     }
-// }
+//  struct RepoItem_Previews: PreviewProvider {
+//      static var previews: some View {
+//          RepoItem(trending: anyTrending())
+//      }
+//  }

@@ -1,10 +1,8 @@
 import src.main.java.toInt
 
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
-    kotlin("plugin.serialization").version(libs.versions.kotlin.get())
     id("com.android.library")
 }
 
@@ -19,21 +17,15 @@ kotlin {
         homepage = "Link to the Shared Module homepage"
         version = libs.versions.version.get()
         ios.deploymentTarget = libs.versions.deploymentTarget.get()
-        podfile = project.file("../iosApp/Podfile")
         framework {
-            baseName = "shared"
-            isStatic = false
-        }
-        pod("Kingfisher") {
-            version = "~> 6.3.1-xcode13"
+            baseName = "sharedMock"
         }
     }
     
     sourceSets {
         val commonMain by getting{
             dependencies{
-                implementation(libs.kotlinxJsonSerialization)
-                implementation(libs.kotlinxCoroutinesCore)
+                implementation(project(":shared"))
             }
         }
         val commonTest by getting {
@@ -65,7 +57,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.mecofarid.trending"
+    namespace = "com.mecofarid.sharedmock"
     compileSdk = libs.versions.compileTargetSdk.toInt()
     defaultConfig {
         minSdk = libs.versions.minSdk.toInt()

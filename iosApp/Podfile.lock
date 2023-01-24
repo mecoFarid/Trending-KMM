@@ -2,9 +2,11 @@ PODS:
   - Kingfisher (6.3.1)
   - shared (1.0):
     - Kingfisher (~> 6.3.1-xcode13)
+  - sharedMock (1.0)
 
 DEPENDENCIES:
   - shared (from `../shared`)
+  - sharedMock (from `../sharedMock`)
 
 SPEC REPOS:
   trunk:
@@ -13,11 +15,14 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   shared:
     :path: "../shared"
+  sharedMock:
+    :path: "../sharedMock"
 
 SPEC CHECKSUMS:
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   shared: b41bcf3a40344c88bf3f405135bbf47996fed912
+  sharedMock: fe826716c398a5e8c1e9799dd3d7fcf763dc5610
 
-PODFILE CHECKSUM: f918f1268610b3468cad4df47046a851eb53b741
+PODFILE CHECKSUM: 5f0b84f1a3b041a42e7d46a006435d60c8972523
 
 COCOAPODS: 1.11.3

@@ -3,6 +3,7 @@ import src.main.java.toInt
 plugins {
     id("com.android.application")
     kotlin("android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -17,6 +18,7 @@ android {
     }
     buildFeatures {
         compose = true
+        dataBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
@@ -35,7 +37,6 @@ android {
 
 dependencies {
     implementation(project(":shared"))
-    debugImplementation(project(":sharedMock"))
     implementation(libs.composeUi)
     implementation(libs.composeUiTooling)
     implementation(libs.composeUiToolingPreview)
@@ -44,4 +45,12 @@ dependencies {
     implementation(libs.composeActivity)
     implementation(libs.viewModelKtx)
     implementation(libs.liveDataKtx)
+    implementation(libs.appCompat)
+    implementation(libs.materialUi)
+    implementation(libs.constraintLayout)
+    implementation(libs.recyclerview)
+    implementation(libs.swipeRefreshLayout)
+    implementation(libs.lottie)
+    implementation(libs.shimmer)
+    implementation(libs.glide)
 }

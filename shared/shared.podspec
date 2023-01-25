@@ -10,6 +10,7 @@ Pod::Spec.new do |spec|
     spec.libraries                = 'c++'
     spec.ios.deployment_target = '14.0'
     spec.dependency 'Kingfisher', '~> 6.3.1-xcode13'
+    spec.dependency 'lottie-ios'
                 
     spec.pod_target_xcconfig = {
         'KOTLIN_PROJECT_PATH' => ':shared',

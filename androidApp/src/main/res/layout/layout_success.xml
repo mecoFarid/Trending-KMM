@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.mecofarid.trending.ui.trending.TrendingViewModel" />
+    </data>
+
+    <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/data_holder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_marginStart="@dimen/gu_2"
+        app:isSuccess="@{viewModel.uiState}"
+        app:dividerOrientation="@{null}"
+        tools:listitem="@layout/item_trending"/>
+
+</layout>

@@ -27,6 +27,7 @@ kotlin {
         pod("Kingfisher") {
             version = "~> 6.3.1-xcode13"
         }
+        pod("lottie-ios")
     }
     
     sourceSets {

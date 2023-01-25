@@ -1,28 +1,27 @@
 PODS:
   - Kingfisher (6.3.1)
+  - lottie-ios (4.0.1)
   - shared (1.0):
     - Kingfisher (~> 6.3.1-xcode13)
-  - sharedMock (1.0)
+    - lottie-ios
 
 DEPENDENCIES:
   - shared (from `../shared`)
-  - sharedMock (from `../sharedMock`)
 
 SPEC REPOS:
   trunk:
     - Kingfisher
+    - lottie-ios
 
 EXTERNAL SOURCES:
   shared:
     :path: "../shared"
-  sharedMock:
-    :path: "../sharedMock"
 
 SPEC CHECKSUMS:
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
-  shared: b41bcf3a40344c88bf3f405135bbf47996fed912
-  sharedMock: fe826716c398a5e8c1e9799dd3d7fcf763dc5610
+  lottie-ios: 54d22edf55b839f0929cabbfe609c9aa548b1145
+  shared: a6650b7d5022a011ce21e1d05eee34f1cad80a05
 
-PODFILE CHECKSUM: 5f0b84f1a3b041a42e7d46a006435d60c8972523
+PODFILE CHECKSUM: f918f1268610b3468cad4df47046a851eb53b741
 
 COCOAPODS: 1.11.3

@@ -1,11 +1,11 @@
 package com.mecofarid.trending.mocks.feature.repo
 
-import com.mecofarid.trending.domain.features.trending.data.source.remote.entity.TrendingRemoteEntity
+import com.mecofarid.trending.features.trending.data.source.remote.entity.TrendingRemoteEntity
 import com.mecofarid.trending.mocks.randomInt
 import com.mecofarid.trending.mocks.randomLong
 import com.mecofarid.trending.mocks.randomString
-import com.mecofarid.trending.domain.features.trending.data.source.local.entity.TrendingLocalEntity
-import com.mecofarid.trending.domain.features.trending.domain.model.Trending
+import com.mecofarid.trending.features.trending.data.source.local.entity.TrendingLocalEntity
+import com.mecofarid.trending.features.trending.domain.model.Trending
 
 fun anyTrendingLocalEntity() =
     TrendingLocalEntity(

@@ -43,13 +43,16 @@ dependencies {
     implementation(libs.composeFoundation)
     implementation(libs.composeMaterial)
     implementation(libs.composeActivity)
+
     implementation(libs.viewModelKtx)
     implementation(libs.liveDataKtx)
+    implementation(libs.fragmentKtx)
     implementation(libs.appCompat)
     implementation(libs.materialUi)
     implementation(libs.constraintLayout)
     implementation(libs.recyclerview)
     implementation(libs.swipeRefreshLayout)
+
     implementation(libs.lottie)
     implementation(libs.shimmer)
     implementation(libs.glide)

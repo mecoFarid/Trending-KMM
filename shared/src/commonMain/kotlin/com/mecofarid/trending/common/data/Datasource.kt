@@ -1,7 +1,9 @@
 package com.mecofarid.trending.common.data
 
-interface Datasource<T> {
-    suspend fun get(query: Query): T
+import com.mecofarid.trending.common.either.Either
 
-    suspend fun put(query: Query, data: T): T
+interface Datasource<T, E> {
+    suspend fun get(query: Query): Either<E, T>
+
+    suspend fun put(query: Query, data: T): Either<E, T>
 }

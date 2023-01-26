@@ -1,7 +1,7 @@
 package com.mecofarid.trending.ui.trending.view
 
 import androidx.databinding.ObservableBoolean
-import com.mecofarid.trending.domain.features.trending.domain.model.Trending
+import com.mecofarid.trending.features.trending.domain.model.Trending
 
 data class TrendingView(val repo: Trending) {
     val isExpanded: ObservableBoolean = ObservableBoolean(false)

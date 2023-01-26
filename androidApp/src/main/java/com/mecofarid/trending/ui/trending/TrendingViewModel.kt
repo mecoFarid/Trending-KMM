@@ -5,8 +5,8 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.mecofarid.trending.common.ui.store.StoreViewModel
-import com.mecofarid.trending.domain.features.trending.domain.interactor.GetTrendingInteractor
-import com.mecofarid.trending.domain.features.trending.ui.TrendingStore
+import com.mecofarid.trending.features.trending.domain.interactor.GetTrendingInteractor
+import com.mecofarid.trending.features.trending.ui.TrendingStore
 
 class TrendingViewModel(
     repoInteractor: GetTrendingInteractor

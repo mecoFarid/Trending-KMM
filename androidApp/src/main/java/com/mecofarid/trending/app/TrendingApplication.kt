@@ -1,8 +1,8 @@
 package com.mecofarid.trending.app
 
 import android.app.Application
-import com.mecofarid.trending.domain.di.AppComponent
-import com.mecofarid.trending.domain.features.trending.RepoComponent
+import com.mecofarid.trending.di.AppComponent
+import com.mecofarid.trending.features.trending.RepoComponent
 
 class TrendingApplication: Application(), AppComponent {
     private val internalAppComponent by lazy { AppModule(this) }

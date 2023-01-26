@@ -3,7 +3,7 @@ package com.mecofarid.trending.ui.trending
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
-import com.mecofarid.trending.domain.features.trending.ui.UiState
+import com.mecofarid.trending.features.trending.ui.UiState
 
 @BindingAdapter("isLoading")
 fun isLoading(view: View, state: UiState) {

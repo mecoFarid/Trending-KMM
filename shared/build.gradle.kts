@@ -33,7 +33,7 @@ kotlin {
     sourceSets {
         val commonMain by getting{
             dependencies{
-                implementation(libs.kotlinxJsonSerialization)
+                implementation(libs.kotlinxSerialization)
                 implementation(libs.kotlinxCoroutinesCore)
             }
         }

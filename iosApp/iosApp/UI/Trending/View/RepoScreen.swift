@@ -78,10 +78,10 @@ struct RepoScreen_Previews: PreviewProvider {
     static let interactor = GetTrendingInteractor(
         trendingRepository: MockRepository(
             result: {
-                NSArray(array: [
+                EitherRight( value: NSArray(array: [
                     TrendingObjectMotherKt.anyTrending(),
                     TrendingObjectMotherKt.anyTrending()
-                ])
+                ]))
             }
         )
     )

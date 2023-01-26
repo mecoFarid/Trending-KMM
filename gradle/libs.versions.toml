@@ -10,16 +10,18 @@ composeFoundation = "1.3.1"
 composeMaterial = "1.3.1"
 composeActivity = "1.6.1"
 composeCompiler = "1.4.0-alpha02"
+
 appCompat = "1.6.0"
 materialUi = "1.7.0"
 constraintLayout = "2.1.4"
 recyclerview = '1.2.1'
 swipeRefreshLayout = "1.1.0"
+lifecycleKtx = "2.5.1"
+fragmentKtx = "1.5.5"
+
 lottie = "5.2.0"
 shimmer = "0.5.0"
 glide = "4.14.2"
-
-lifecycleKtx = "2.5.1"
 
 # iOS
 deploymentTarget = "14.0"
@@ -38,19 +40,22 @@ composeUiToolingPreview = { module = "androidx.compose.ui:ui-tooling-preview" , 
 composeFoundation = { module = "androidx.compose.foundation:foundation" , version.ref = "composeFoundation"}
 composeMaterial = { module = "androidx.compose.material:material" , version.ref = "composeMaterial"}
 composeActivity = { module = "androidx.activity:activity-compose" , version.ref = "composeActivity"}
+
 viewModelKtx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleKtx" }
 liveDataKtx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycleKtx" }
+fragmentKtx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragmentKtx" }
 appCompat = { module = "androidx.appcompat:appcompat", version.ref = "appCompat" }
 materialUi = { module = "com.google.android.material:material", version.ref = "materialUi" }
 constraintLayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintLayout" }
 recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
 swipeRefreshLayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swipeRefreshLayout" }
+
 lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
 shimmer = { module = "com.facebook.shimmer:shimmer", version.ref = "shimmer" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 
 #KMM
-kotlinxJsonSerialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization"}
+kotlinxSerialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization"}
 kotlinxCoroutinesCore = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
 
 [bundles]

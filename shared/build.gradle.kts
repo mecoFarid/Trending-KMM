@@ -1,11 +1,12 @@
 import src.main.java.toInt
 
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
+@Suppress("DSL_SCOPE_VIOLATION", "UnstableApiUsage") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
     kotlin("plugin.serialization").version(libs.versions.kotlin.get())
     id("com.android.library")
+    alias(libs.plugins.sqlDelight)
 }
 
 kotlin {
@@ -42,12 +43,23 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
-        val androidMain by getting
-        val androidTest by getting
+        val androidMain by getting {
+            dependencies {
+                implementation(libs.sqliteAndroidDriver)
+            }
+        }
+        val androidTest by getting {
+            dependencies{
+                implementation(libs.androidCoreTestKtx)
+            }
+        }
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
         val iosMain by creating {
+            dependencies {
+                implementation(libs.sqliteIosDriver)
+            }
             dependsOn(commonMain)
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
@@ -71,5 +83,13 @@ android {
     defaultConfig {
         minSdk = libs.versions.minSdk.toInt()
         targetSdk = libs.versions.compileTargetSdk.toInt()
+    }
+}
+
+sqldelight {
+    databases {
+        create("TrendingDatabase") {
+            packageName.set("com.mecofarid.trending.libs.db.sqldelight")
+        }
     }
 }

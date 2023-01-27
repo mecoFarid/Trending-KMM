@@ -8,7 +8,7 @@ data class RepoResponseRemoteEntity(val items: List<TrendingRemoteEntity>)
 
 @Serializable
 data class TrendingRemoteEntity(
-    val id: Int,
+    val id: Long,
     val name: String,
     val language: String?,
     @SerialName("stargazers_count")

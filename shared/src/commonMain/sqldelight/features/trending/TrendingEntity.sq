@@ -1,0 +1,19 @@
+CREATE TABLE TrendingEntity(
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    language TEXT,
+    stargazersCount INTEGER NOT NULL,
+    description TEXT
+);
+
+insert:
+INSERT INTO TrendingEntity(id, name, language, stargazersCount, description)
+VALUES (?, ?, ?, ?, ?);
+
+selectAll:
+SELECT T.id, T.name, T.language, T.stargazersCount, T.description, O.login, O.avatarUrl
+FROM TrendingEntity AS T, OwnerEntity AS O
+LEFT JOIN TrendingEntity ON T.id == O.trending_id;
+
+deleteAll:
+DELETE FROM TrendingEntity;

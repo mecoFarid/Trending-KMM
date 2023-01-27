@@ -1,7 +1,7 @@
 package com.mecofarid.trending.features.trending.domain.model
 
 data class Trending(
-    val trendingId: Int,
+    val trendingId: Long,
     val name: String,
     val language: String?,
     val stargazersCount: Long,

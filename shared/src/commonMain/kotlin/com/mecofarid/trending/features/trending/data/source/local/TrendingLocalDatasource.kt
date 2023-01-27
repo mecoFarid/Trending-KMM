@@ -23,12 +23,12 @@ class TrendingLocalDatasource(
     ): TrendingResult<TrendingLocalEntity> =
         when (query) {
             GetAllTrendingReposQuery -> Either.Right(data).apply {
-                trendingLocalEntityDao.deleteAllTrendingReposAndInsert(this.value)
+                trendingLocalEntityDao.deleteAllTrendingAndInsert(this.value)
             }
             else -> throw UnsupportedOperationException("Put with query type ($query) is not supported")
         }
 
-    private suspend fun getRepos() = with(trendingLocalEntityDao.getAllTrendingRepos()) {
+    private suspend fun getRepos() = with(trendingLocalEntityDao.getAllTrending()) {
         return@with if (isEmpty())
             Either.Left(DataException.DataNotFoundException())
         else

@@ -1,7 +1,7 @@
 package com.mecofarid.trending.features.trending.data.source.local.entity
 
 data class TrendingLocalEntity(
-    val id: Int = 0,
+    val id: Long = 0,
     val name: String,
     val language: String?,
     val stargazersCount: Long,

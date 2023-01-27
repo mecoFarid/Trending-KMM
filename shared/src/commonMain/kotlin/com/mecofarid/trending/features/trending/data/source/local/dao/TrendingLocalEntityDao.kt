@@ -1,22 +1,32 @@
 package com.mecofarid.trending.features.trending.data.source.local.dao
 
 import com.mecofarid.trending.features.trending.data.source.local.entity.TrendingLocalEntity
+import features.trending.TrendingEntityQueries
 
-//@Dao
-interface TrendingLocalEntityDao {
+class TrendingLocalEntityDao(private val trendingEntityQueries: TrendingEntityQueries) {
 
-//    @Query("SELECT * FROM repolocalentity")
-    suspend fun getAllTrendingRepos(): List<TrendingLocalEntity>
+    fun getAllTrending(): List<TrendingLocalEntity> =
+        trendingEntityQueries.selectAll { id, name, language, stargazersCount, description, login, avatarUrl ->
+            TrendingLocalEntity(
+                id, name, language, stargazersCount, description,
+                TrendingLocalEntity.OwnerLocalEntity(login, avatarUrl)
+            )
+        }.executeAsList()
 
-//    @Transaction
-    suspend fun deleteAllTrendingReposAndInsert(repos: List<TrendingLocalEntity>) {
+    fun deleteAllTrendingAndInsert(trendingList: List<TrendingLocalEntity>) {
         deleteAll()
-        insertAll(repos)
+        insertAll(trendingList)
     }
 
-//    @Query("DELETE FROM repolocalentity")
-    suspend fun deleteAll()
+    private fun deleteAll() = trendingEntityQueries.deleteAll()
 
-//    @Insert
-    suspend fun insertAll(users: List<TrendingLocalEntity>)
+    private fun insertAll(users: List<TrendingLocalEntity>) {
+        trendingEntityQueries.transaction {
+            users.forEach {
+                it.apply {
+                    trendingEntityQueries.insert(id, name, language, stargazersCount, description)
+                }
+            }
+        }
+    }
 }

@@ -9,7 +9,7 @@ import com.mecofarid.trending.features.trending.domain.model.Trending
 
 fun anyTrendingLocalEntity() =
     TrendingLocalEntity(
-        randomInt(),
+        randomLong(),
         randomString(),
         randomString(),
         randomLong(),
@@ -25,7 +25,7 @@ fun anyOwnerLocalEntity() =
 
 fun anyTrendingRemoteEntity() =
     TrendingRemoteEntity(
-        randomInt(),
+        randomLong(),
         randomString(),
         randomString(),
         randomLong(),
@@ -41,7 +41,7 @@ fun anyOwnerRemoteEntity() =
 
 fun anyTrending(): Trending =
     Trending(
-        randomInt(),
+        randomLong(),
         randomString(),
         randomString(),
         randomLong(),

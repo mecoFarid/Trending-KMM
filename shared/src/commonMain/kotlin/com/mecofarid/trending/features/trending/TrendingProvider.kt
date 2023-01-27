@@ -21,8 +21,8 @@ class RepoModule(
 ): RepoComponent {
 
     private val repository by lazy {
-        val cacheDataSource = TrendingLocalDatasource(dbComponent.repoLocalEntityDao())
-        val mainDatasource = RepoRemoteDatasource(networkComponent.repoService())
+        val cacheDataSource = TrendingLocalDatasource(dbComponent.trendingLocalEntityDao())
+        val mainDatasource = RepoRemoteDatasource(networkComponent.trendingService())
 
         val toLocalEntityMapper = RepoRemoteEntityToLocalEntityMapper(
             OwnerRemoteEntityToOwnerLocalEntityMapper()

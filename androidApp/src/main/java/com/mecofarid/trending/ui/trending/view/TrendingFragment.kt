@@ -50,8 +50,8 @@ class TrendingFragment : Fragment(){
         }
     }
 
-    private fun showSuccess(repos: List<Trending>){
-        val trendingView = repos.map { TrendingView(it) }
+    private fun showSuccess(trendingList: List<Trending>){
+        val trendingView = trendingList.map { TrendingView(it) }
         trendingAdapter.submitList(trendingView)
     }
 }

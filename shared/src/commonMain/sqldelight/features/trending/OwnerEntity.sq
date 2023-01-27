@@ -1,0 +1,10 @@
+CREATE TABLE OwnerEntity(
+    trending_id INTEGER NOT NULL,
+    login TEXT NOT NULL,
+    avatarUrl TEXT,
+    FOREIGN KEY (trending_id) REFERENCES TrendingEntity(id) ON DELETE CASCADE
+);
+
+insert:
+INSERT INTO OwnerEntity(trending_id, login, avatarUrl)
+VALUES (?, ?, ?);

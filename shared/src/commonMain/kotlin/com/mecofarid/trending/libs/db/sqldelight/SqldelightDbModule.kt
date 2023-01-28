@@ -9,5 +9,5 @@ class SqldelightDbModule(private val databaseDriverFactory: DatabaseDriverFactor
     }
 
     override fun trendingLocalEntityDao(): TrendingLocalEntityDao =
-        TrendingLocalEntityDao(database.trendingEntityQueries)
+        TrendingLocalEntityDao(database)
 }

@@ -45,12 +45,23 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation(libs.sqliteAndroidDriver)
+                implementation(libs.sqldelightAndroidDriver)
             }
         }
         val androidTest by getting {
             dependencies{
                 implementation(libs.androidCoreTestKtx)
+                implementation(libs.sqldelightJavaDriver)
+                //Fixme: Ideally, we have to use SQLite version that is compatible with Android
+                // minSDK but required version is not compiled with Apple M1 chip, and tests are not
+                // running on Development Machine with M1 chip
+//                implementation(libs.sqliteJava.get().toString()) {
+//                    // Override the version of sqlite used by sqlite-driver to match minSDK
+//                    // (21 for current project)
+//                    version {
+//                        strictly("3.8.10.2"libs.versions.sqliteJava.get())
+//                    }
+//                }
             }
         }
         val iosX64Main by getting
@@ -58,7 +69,7 @@ kotlin {
         val iosSimulatorArm64Main by getting
         val iosMain by creating {
             dependencies {
-                implementation(libs.sqliteIosDriver)
+                implementation(libs.sqldelightIosDriver)
             }
             dependsOn(commonMain)
             iosX64Main.dependsOn(this)

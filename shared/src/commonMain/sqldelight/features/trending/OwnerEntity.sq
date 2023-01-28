@@ -2,9 +2,12 @@ CREATE TABLE OwnerEntity(
     trending_id INTEGER NOT NULL,
     login TEXT NOT NULL,
     avatarUrl TEXT,
-    FOREIGN KEY (trending_id) REFERENCES TrendingEntity(id) ON DELETE CASCADE
+    FOREIGN KEY (trending_id) REFERENCES TrendingEntity(id)
 );
 
 insert:
 INSERT INTO OwnerEntity(trending_id, login, avatarUrl)
 VALUES (?, ?, ?);
+
+deleteAll:
+DELETE FROM OwnerEntity;

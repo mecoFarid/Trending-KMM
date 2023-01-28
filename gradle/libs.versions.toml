@@ -57,15 +57,18 @@ lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
 shimmer = { module = "com.facebook.shimmer:shimmer", version.ref = "shimmer" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 
-sqliteAndroidDriver = {module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
+sqldelightAndroidDriver = {module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
 
 #iOS
-sqliteIosDriver = {module = "app.cash.sqldelight:native-driver", version.ref = "sqlDelight" }
+sqldelightIosDriver = {module = "app.cash.sqldelight:native-driver", version.ref = "sqlDelight" }
 
 #KMM
 kotlinxSerialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization"}
 kotlinxCoroutinesCore = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
 androidCoreTestKtx = { module = "androidx.test:core-ktx", version.ref = "androidCoreTestKtx" }
+
+#JVM
+sqldelightJavaDriver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqlDelight" }
 
 [bundles]
 

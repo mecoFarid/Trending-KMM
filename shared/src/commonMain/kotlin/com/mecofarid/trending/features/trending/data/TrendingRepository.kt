@@ -2,14 +2,11 @@ package com.mecofarid.trending.features.trending.data
 
 import TrendingResult
 import com.mecofarid.trending.common.data.DataException
-import com.mecofarid.trending.common.data.DataException.DataNotFoundException
 import com.mecofarid.trending.common.data.Datasource
 import com.mecofarid.trending.common.data.Mapper
 import com.mecofarid.trending.common.data.Operation
 import com.mecofarid.trending.common.data.Query
 import com.mecofarid.trending.common.data.Repository
-import com.mecofarid.trending.common.either.Either
-import com.mecofarid.trending.common.either.flatMap
 import com.mecofarid.trending.features.trending.data.source.local.entity.TrendingLocalEntity
 import com.mecofarid.trending.features.trending.data.source.remote.entity.TrendingRemoteEntity
 import com.mecofarid.trending.features.trending.domain.model.Trending

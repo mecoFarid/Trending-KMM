@@ -7,9 +7,11 @@ data class TrendingLocalEntity(
     val stargazersCount: Long,
     val description: String?,
     val owner: OwnerLocalEntity
-){
+): Comparable<TrendingLocalEntity>{
     data class OwnerLocalEntity(
         val login: String,
         val avatarUrl: String?,
     )
+
+    override fun compareTo(other: TrendingLocalEntity): Int = other.id.compareTo(this.id)
 }

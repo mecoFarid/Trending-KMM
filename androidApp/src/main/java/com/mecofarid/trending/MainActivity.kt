@@ -2,7 +2,6 @@ package com.mecofarid.trending
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.material.*
 import androidx.databinding.DataBindingUtil
 import com.mecofarid.trending.android.R
 import com.mecofarid.trending.android.databinding.ActivityMainBinding

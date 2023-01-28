@@ -1,6 +1,5 @@
 package com.mecofarid.trending.features.trending.ui
 
-import com.mecofarid.trending.common.data.DataException
 import com.mecofarid.trending.common.data.Operation
 import com.mecofarid.trending.common.ext.observe
 import com.mecofarid.trending.common.ui.store.Store

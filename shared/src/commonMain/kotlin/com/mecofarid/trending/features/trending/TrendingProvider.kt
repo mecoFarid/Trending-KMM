@@ -5,7 +5,7 @@ import com.mecofarid.trending.common.data.ListMapper
 import com.mecofarid.trending.common.data.VoidMapper
 import com.mecofarid.trending.di.db.DbComponent
 import com.mecofarid.trending.di.network.NetworkComponent
-import com.mecofarid.trending.features.trending.data.TrendingRepository
+import com.mecofarid.trending.common.data.repository.cache.CacheRepository
 import com.mecofarid.trending.features.trending.data.mapper.OwnerLocalEntityToOwnerMapper
 import com.mecofarid.trending.features.trending.data.mapper.OwnerRemoteEntityToOwnerMapper
 import com.mecofarid.trending.features.trending.data.mapper.OwnerToOwnerLocalEntityMapper
@@ -45,7 +45,7 @@ class TrendingModule(
             cacheInMapper
         )
 
-        TrendingRepository(cacheDataSource, mainDatasource)
+        CacheRepository(cacheDataSource, mainDatasource)
     }
 
     override fun getTrendingInteractor(): GetTrendingInteractor = GetTrendingInteractor(repository)

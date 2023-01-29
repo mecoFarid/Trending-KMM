@@ -3,7 +3,7 @@
 
     <data>
         <variable
-            name="repoView"
+            name="trendingView"
             type="com.mecofarid.trending.ui.trending.view.TrendingView" />
     </data>
 
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/gu_1.5"
-        android:onClick="@{() -> repoView.toggleExpansion()}">
+        android:onClick="@{() -> trendingView.toggleExpansion()}">
 
         <ImageView
             android:id="@+id/avatar"
@@ -23,7 +23,7 @@
             android:background="@drawable/circle_placeholder_bg"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:imageUrl="@{repoView.repo.owner.avatarUrl}"
+            app:imageUrl="@{trendingView.trending.owner.avatarUrl}"
             android:layout_marginTop="@dimen/gu_1.5"/>
 
         <TextView
@@ -35,7 +35,7 @@
             android:layout_marginStart="@dimen/gu_2"
             android:paddingEnd="@dimen/gu_2"
             style="@style/Widget.Trending.TextAppearance.TrendingItem.Secondary"
-            android:text="@{repoView.repo.owner.login, default = Owner}" />
+            android:text="@{trendingView.trending.owner.login, default = Owner}" />
 
         <TextView
             android:id="@+id/name"
@@ -46,7 +46,7 @@
             app:layout_constraintStart_toStartOf="@id/owner"
             android:paddingEnd="@dimen/gu_2"
             style="@style/Widget.Trending.TextAppearance.TrendingItem.Primary"
-            android:text="@{repoView.repo.name, default = Name}" />
+            android:text="@{trendingView.trending.name, default = Name}" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/extra_holder"
@@ -55,7 +55,7 @@
             app:layout_constraintTop_toBottomOf="@id/name"
             app:layout_constraintStart_toStartOf="@id/owner"
             android:layout_marginTop="@dimen/gu"
-            app:visible="@{repoView.isExpanded()}"
+            app:visible="@{trendingView.isExpanded()}"
             android:paddingEnd="@dimen/gu_2">
 
             <TextView
@@ -66,7 +66,7 @@
                 android:paddingEnd="@dimen/gu_2"
                 app:layout_constraintTop_toTopOf="parent"
                 style="@style/Widget.Trending.TextAppearance.TrendingItem.Secondary"
-                android:text="@{repoView.repo.descriptionText}"
+                android:text="@{trendingView.trending.descriptionText}"
                 tool:text="Loooooooooooong Description"/>
 
             <com.mecofarid.trending.common.ui.widget.IconizedTextView
@@ -80,7 +80,7 @@
                 android:drawableLeft="@drawable/circle_language_indicator"
                 android:drawablePadding="@dimen/gu_0.5"
                 style="@style/Widget.Trending.TextAppearance.TrendingItem.Secondary"
-                android:text='@{repoView.repo.language ?? "N/A", default = Kotlin}'/>
+                android:text='@{trendingView.trending.language ?? "N/A", default = Kotlin}'/>
 
             <com.mecofarid.trending.common.ui.widget.IconizedTextView
                 android:id="@+id/star_count"
@@ -94,7 +94,7 @@
                 app:drawableStartSize="@dimen/gu_1.25"
                 android:drawablePadding="@dimen/gu_0.5"
                 style="@style/Widget.Trending.TextAppearance.TrendingItem.Secondary"
-                android:text="@{String.valueOf(repoView.repo.stargazersCount), default = 115}"/>
+                android:text="@{String.valueOf(trendingView.trending.stargazersCount), default = 115}"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

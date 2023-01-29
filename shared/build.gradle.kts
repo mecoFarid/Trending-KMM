@@ -36,6 +36,9 @@ kotlin {
             dependencies{
                 implementation(libs.kotlinxSerialization)
                 implementation(libs.kotlinxCoroutinesCore)
+                implementation(libs.ktorCore)
+                implementation(libs.ktorClientNegotiation)
+                implementation(libs.ktorKotlinxJsonSerialization)
             }
         }
         val commonTest by getting {
@@ -46,6 +49,7 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation(libs.sqldelightAndroidDriver)
+                implementation(libs.ktorAndroidClient)
             }
         }
         val androidTest by getting {
@@ -70,6 +74,7 @@ kotlin {
         val iosMain by creating {
             dependencies {
                 implementation(libs.sqldelightIosDriver)
+                implementation(libs.ktorIosClient)
             }
             dependsOn(commonMain)
             iosX64Main.dependsOn(this)

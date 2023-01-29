@@ -1,5 +1,5 @@
 //
-//  RepoView.swift
+//  TrendingView.swift
 //  Trending
 //
 //  Created by Farid Mammadov on 05.01.23.
@@ -8,7 +8,7 @@
 import SwiftUI
 import shared
 
-struct RepoScreen: View {
+struct TrendingScreen: View {
     
     @EnvironmentObject var viewModel: TrendingViewModel
     var uiState: UiState { viewModel.liveUiState }
@@ -18,7 +18,7 @@ struct RepoScreen: View {
             VStack(alignment: .center){
                 switch uiState {
                 case let success as UiState.Success:
-                    RepoList(trendingList: success.trendingList)
+                    TrendingList(trendingList: success.trendingList)
                 case _ as UiState.Loading:
                     LottieView(name: LottieAnimation.loading.rawValue)
                         .frame(width: Dimens.gu_30.rawValue, height: Dimens.gu_30.rawValue)
@@ -39,7 +39,7 @@ struct RepoScreen: View {
     }
 }
 
- struct RepoList: View {
+ struct TrendingList: View {
 
      let trendingList: [Trending]
 
@@ -47,7 +47,7 @@ struct RepoScreen: View {
          ScrollView{
              LazyVStack{
                  ForEach(trendingList) { trending in
-                     RepoItem(trending: trending)
+                     TrendingItem(trending: trending)
                      Divider()
                  }
              }
@@ -74,7 +74,7 @@ struct RefreshButton: View{
     }
 }
 
-struct RepoScreen_Previews: PreviewProvider {
+struct TrendingScreen_Previews: PreviewProvider {
     static let interactor = GetTrendingInteractor(
         trendingRepository: MockRepository(
             result: {
@@ -86,7 +86,7 @@ struct RepoScreen_Previews: PreviewProvider {
         )
     )
     static var previews: some View {
-        RepoScreen().environmentObject(TrendingViewModel(repoInteractor: interactor))
+        TrendingScreen().environmentObject(TrendingViewModel(trendingInteractor:interactor))
     }
 }
 

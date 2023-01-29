@@ -9,9 +9,9 @@ import com.mecofarid.trending.features.trending.domain.interactor.GetTrendingInt
 import com.mecofarid.trending.features.trending.ui.TrendingStore
 
 class TrendingViewModel(
-    repoInteractor: GetTrendingInteractor
+    trendingInteractor: GetTrendingInteractor
 ): StoreViewModel<TrendingStore>, ViewModel() {
-    override val store: TrendingStore = TrendingStore(repoInteractor)
+    override val store: TrendingStore = TrendingStore(trendingInteractor)
     val uiState = store.uiState.asLiveData()
 
     companion object {
@@ -20,5 +20,10 @@ class TrendingViewModel(
                 TrendingViewModel(repoInteractor)
             }
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        store.clear()
     }
 }

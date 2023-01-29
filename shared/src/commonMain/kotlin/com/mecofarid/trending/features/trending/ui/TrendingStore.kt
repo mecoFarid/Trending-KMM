@@ -3,13 +3,13 @@ package com.mecofarid.trending.features.trending.ui
 import com.mecofarid.trending.common.data.Operation
 import com.mecofarid.trending.common.ext.observe
 import com.mecofarid.trending.common.ui.store.Store
-import com.mecofarid.trending.features.trending.data.query.GetAllTrendingReposQuery
+import com.mecofarid.trending.features.trending.data.query.GetAllTrendingQuery
 import com.mecofarid.trending.features.trending.domain.interactor.GetTrendingInteractor
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
-class TrendingStore(private val repoInteractor: GetTrendingInteractor): Store() {
+class TrendingStore(private val trendingInteractor: GetTrendingInteractor): Store() {
 
     private val internalUiState = MutableStateFlow<UiState>(UiState.Loading)
     val uiState: Flow<UiState> = internalUiState
@@ -35,7 +35,7 @@ class TrendingStore(private val repoInteractor: GetTrendingInteractor): Store() 
     private fun loadData(operation: Operation) {
         state = UiState.Loading
         scope.launch {
-            state = repoInteractor(GetAllTrendingReposQuery, operation)
+            state = trendingInteractor(GetAllTrendingQuery(), operation)
                 .fold(
                     { UiState.NoData },
                     { UiState.Success(it) }

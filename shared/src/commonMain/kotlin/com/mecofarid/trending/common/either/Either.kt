@@ -1,5 +1,9 @@
 package com.mecofarid.trending.common.either
 
+import com.mecofarid.trending.common.data.DataException
+import io.ktor.client.call.body
+import io.ktor.client.statement.HttpResponse
+import io.ktor.http.isSuccess
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
@@ -179,3 +183,13 @@ inline fun <A, B> Either<A, B>.getOrElse(default: (A) -> B): B =
 fun <A> A.left(): Either<A, Nothing> = Either.Left(this)
 
 fun <A> A.right(): Either<Nothing, A> = Either.Right(this)
+
+inline fun <reified Left: Throwable, Right> asEither(block: () -> Right): Either<Left, Right> =
+    try {
+        Either.Right(block())
+    }catch (e: Throwable) {
+        if (e is Left)
+            Either.Left(e)
+        else
+            throw e
+    }

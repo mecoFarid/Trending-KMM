@@ -18,7 +18,7 @@ class TrendingFragment : Fragment(){
 
     private lateinit var binding: FragmentTrendingBinding
     private val viewModel by viewModels<TrendingViewModel> {
-        TrendingViewModel.factory(requireActivity().application.appComponent().repoComponent().getRepoInteractor())
+        TrendingViewModel.factory(requireActivity().application.appComponent().trendingComponent().getTrendingInteractor())
     }
     private val trendingAdapter by lazy { TrendingAdapter(this) }
 

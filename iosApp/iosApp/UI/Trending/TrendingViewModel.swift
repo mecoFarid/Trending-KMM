@@ -10,15 +10,15 @@ import shared
 
 @MainActor
 class TrendingViewModel: StoreViewModel, ObservableObject{
-    nonisolated var store: Store { TrendingStore(repoInteractor: repoInteractor) }
+    nonisolated var store: Store { TrendingStore(trendingInteractor: trendingInteractor) }
     lazy private(set) var trendingStore = { self.store as! TrendingStore }()
     
     
     @Published private(set) var liveUiState: UiState!
-    private let repoInteractor: GetTrendingInteractor
+    private let trendingInteractor: GetTrendingInteractor
 
-    init(repoInteractor: GetTrendingInteractor) {
-        self.repoInteractor = repoInteractor
+    init(trendingInteractor: GetTrendingInteractor) {
+        self.trendingInteractor = trendingInteractor
         trendingStore.observeUiState{ state in
             self.liveUiState = state
         }

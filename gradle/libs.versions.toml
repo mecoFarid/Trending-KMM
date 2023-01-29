@@ -33,7 +33,10 @@ kotlin = "1.8.0"
 version = "1.0"
 kotlinxSerialization = "1.4.1"
 kotlinxCoroutines = "1.6.4"
+
 sqlDelight = "2.0.0-alpha05"
+
+ktor = "2.2.2"
 
 [libraries]
 #Android
@@ -59,13 +62,22 @@ glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 
 sqldelightAndroidDriver = {module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
 
+ktorAndroidClient = { module = "io.ktor:ktor-client-android", version.ref = "ktor"}
+
 #iOS
 sqldelightIosDriver = {module = "app.cash.sqldelight:native-driver", version.ref = "sqlDelight" }
+
+ktorIosClient = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor"}
 
 #KMM
 kotlinxSerialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization"}
 kotlinxCoroutinesCore = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
 androidCoreTestKtx = { module = "androidx.test:core-ktx", version.ref = "androidCoreTestKtx" }
+
+ktorCore = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktorClientNegotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktorKotlinxJsonSerialization = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+
 
 #JVM
 sqldelightJavaDriver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqlDelight" }

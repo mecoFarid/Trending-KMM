@@ -1,4 +1,4 @@
-package com.mecofarid.trending.mocks.feature.repo
+package com.mecofarid.trending.mocks.feature.trending
 
 import com.mecofarid.trending.features.trending.data.source.local.entity.TrendingLocalEntity
 import com.mecofarid.trending.features.trending.data.source.remote.entity.TrendingRemoteEntity

@@ -2,7 +2,7 @@ package com.mecofarid.trending.features.trending.data.source.local.dao
 
 import com.mecofarid.trending.libs.db.sqldelight.TrendingDatabase
 import com.mecofarid.trending.mocks.anyList
-import com.mecofarid.trending.mocks.feature.repo.anyTrendingLocalEntity
+import com.mecofarid.trending.mocks.feature.trending.anyTrendingLocalEntity
 import com.mecofarid.trending.mocks.randomInt
 import com.mecofarid.trending.utils.db.sqldelight.testSqlDelightDriver
 import kotlin.test.AfterTest
@@ -14,9 +14,8 @@ import kotlin.test.assertEquals
 open class TrendingLocalEntityDaoTest {
 
     private val sqlDriver by lazy { testSqlDelightDriver() }
-    val db = TrendingDatabase(sqlDriver)
     private val dao by  lazy {
-         TrendingLocalEntityDao(db)
+         TrendingLocalEntityDao(TrendingDatabase(sqlDriver))
     }
 
     @AfterTest
@@ -31,7 +30,6 @@ open class TrendingLocalEntityDaoTest {
         repeat(randomInt(1, 10)){
             dao.deleteAllTrendingAndInsert(anyList { anyTrendingLocalEntity() })
         }
-
         dao.deleteAllTrendingAndInsert(expectedData)
         val actualData = dao.getAllTrending().sorted()
 

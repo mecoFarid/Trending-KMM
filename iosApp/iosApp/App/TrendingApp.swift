@@ -6,16 +6,16 @@
 //
 
 import SwiftUI
-// import shared
+import shared
 
-// private var appComponent: AppComponent = { AppModule() }()
+ private var appComponent: AppComponent = { AppModule(databaseDriverFactory: DatabaseDriverFactory()) }()
 
 @main
 struct TrendingApp: App {
 
     var body: some Scene {
         WindowGroup{
-//             RepoScreen().environmentObject(TrendingViewModel(appComponent.getRepoComponent().getTrendingInteractor()))
+            TrendingScreen().environmentObject(TrendingViewModel(trendingInteractor: appComponent.trendingComponent().getTrendingInteractor()))
         }
     }
 }

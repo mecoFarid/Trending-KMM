@@ -29,7 +29,7 @@ class TrendingAdapter(
 
     class ViewHolder(private val binding: ItemTrendingBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(trendingView: TrendingView) {
-            binding.repoView = trendingView
+            binding.trendingView = trendingView
         }
     }
 

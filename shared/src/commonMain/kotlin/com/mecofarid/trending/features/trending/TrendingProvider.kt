@@ -11,14 +11,14 @@ import com.mecofarid.trending.features.trending.data.source.local.TrendingLocalD
 import com.mecofarid.trending.features.trending.data.source.remote.RepoRemoteDatasource
 import com.mecofarid.trending.features.trending.domain.interactor.GetTrendingInteractor
 
-interface RepoComponent {
-    fun getRepoInteractor(): GetTrendingInteractor
+interface TrendingComponent {
+    fun getTrendingInteractor(): GetTrendingInteractor
 }
 
-class RepoModule(
+class TrendingModule(
     private val dbComponent: DbComponent,
     private val networkComponent: NetworkComponent
-): RepoComponent {
+): TrendingComponent {
 
     private val repository by lazy {
         val cacheDataSource = TrendingLocalDatasource(dbComponent.trendingLocalEntityDao())
@@ -37,5 +37,5 @@ class RepoModule(
         )
     }
 
-    override fun getRepoInteractor(): GetTrendingInteractor = GetTrendingInteractor(repository)
+    override fun getTrendingInteractor(): GetTrendingInteractor = GetTrendingInteractor(repository)
 }

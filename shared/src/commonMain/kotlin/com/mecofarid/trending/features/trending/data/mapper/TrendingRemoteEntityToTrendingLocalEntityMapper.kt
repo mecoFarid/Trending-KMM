@@ -1,18 +1,17 @@
 package com.mecofarid.trending.features.trending.data.mapper
 
 import com.mecofarid.trending.common.data.Mapper
-import com.mecofarid.trending.features.trending.data.source.local.entity.TrendingLocalEntity
-import com.mecofarid.trending.features.trending.data.source.local.entity.TrendingLocalEntity.OwnerLocalEntity
 import com.mecofarid.trending.features.trending.data.source.remote.entity.TrendingRemoteEntity
 import com.mecofarid.trending.features.trending.data.source.remote.entity.TrendingRemoteEntity.OwnerRemoteEntity
+import com.mecofarid.trending.features.trending.domain.model.Trending
 
-class RepoRemoteEntityToLocalEntityMapper(
-    private val ownerMapper: Mapper<OwnerRemoteEntity, OwnerLocalEntity>
-): Mapper<TrendingRemoteEntity, TrendingLocalEntity> {
+class TrendingRemoteEntityToTrendingMapper(
+    private val ownerMapper: Mapper<OwnerRemoteEntity, Trending.Owner>
+): Mapper<TrendingRemoteEntity, Trending> {
 
-    override fun map(input: TrendingRemoteEntity): TrendingLocalEntity =
+    override fun map(input: TrendingRemoteEntity): Trending =
         with(input){
-            TrendingLocalEntity(
+            Trending(
                 id,
                 name,
                 language,
@@ -23,8 +22,9 @@ class RepoRemoteEntityToLocalEntityMapper(
         }
 }
 
-class OwnerRemoteEntityToOwnerLocalEntityMapper:
-    Mapper<OwnerRemoteEntity, OwnerLocalEntity> {
+class OwnerRemoteEntityToOwnerMapper:
+    Mapper<OwnerRemoteEntity, Trending.Owner> {
 
-    override fun map(input: OwnerRemoteEntity): OwnerLocalEntity = OwnerLocalEntity(input.login, input.avatarUrl)
+    override fun map(input: OwnerRemoteEntity): Trending.Owner =
+        Trending.Owner(input.login, input.avatarUrl)
 }

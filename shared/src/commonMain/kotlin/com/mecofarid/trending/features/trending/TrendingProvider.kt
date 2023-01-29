@@ -1,12 +1,17 @@
 package com.mecofarid.trending.features.trending
 
+import com.mecofarid.trending.common.data.DatasourceMapper
+import com.mecofarid.trending.common.data.ListMapper
+import com.mecofarid.trending.common.data.VoidMapper
 import com.mecofarid.trending.di.db.DbComponent
 import com.mecofarid.trending.di.network.NetworkComponent
 import com.mecofarid.trending.features.trending.data.TrendingRepository
 import com.mecofarid.trending.features.trending.data.mapper.OwnerLocalEntityToOwnerMapper
-import com.mecofarid.trending.features.trending.data.mapper.OwnerRemoteEntityToOwnerLocalEntityMapper
-import com.mecofarid.trending.features.trending.data.mapper.RepoLocalEntityToRepoMapper
-import com.mecofarid.trending.features.trending.data.mapper.RepoRemoteEntityToLocalEntityMapper
+import com.mecofarid.trending.features.trending.data.mapper.OwnerRemoteEntityToOwnerMapper
+import com.mecofarid.trending.features.trending.data.mapper.OwnerToOwnerLocalEntityMapper
+import com.mecofarid.trending.features.trending.data.mapper.TrendingLocalEntityToTrendingMapper
+import com.mecofarid.trending.features.trending.data.mapper.TrendingRemoteEntityToTrendingMapper
+import com.mecofarid.trending.features.trending.data.mapper.TrendingToTrendingLocalEntityMapper
 import com.mecofarid.trending.features.trending.data.source.local.TrendingLocalDatasource
 import com.mecofarid.trending.features.trending.data.source.remote.RepoRemoteDatasource
 import com.mecofarid.trending.features.trending.domain.interactor.GetTrendingInteractor
@@ -21,20 +26,26 @@ class TrendingModule(
 ): TrendingComponent {
 
     private val repository by lazy {
-        val cacheDataSource = TrendingLocalDatasource(dbComponent.trendingLocalEntityDao())
-        val mainDatasource = RepoRemoteDatasource(networkComponent.trendingService())
-
-        val toLocalEntityMapper = RepoRemoteEntityToLocalEntityMapper(
-            OwnerRemoteEntityToOwnerLocalEntityMapper()
+        val mainOutMapper =
+            ListMapper(
+                TrendingRemoteEntityToTrendingMapper(OwnerRemoteEntityToOwnerMapper())
+            )
+        val cacheOutMapper =
+            ListMapper(TrendingLocalEntityToTrendingMapper(OwnerLocalEntityToOwnerMapper()))
+        val cacheInMapper =
+            ListMapper(TrendingToTrendingLocalEntityMapper(OwnerToOwnerLocalEntityMapper()))
+        val mainDatasource = DatasourceMapper(
+            RepoRemoteDatasource(networkComponent.trendingService()),
+            mainOutMapper,
+            VoidMapper()
         )
-        val toDomainMapper = RepoLocalEntityToRepoMapper(OwnerLocalEntityToOwnerMapper())
-
-        TrendingRepository(
-            cacheDataSource,
-            mainDatasource,
-            toLocalEntityMapper,
-            toDomainMapper
+        val cacheDataSource = DatasourceMapper(
+            TrendingLocalDatasource(dbComponent.trendingLocalEntityDao()),
+            cacheOutMapper,
+            cacheInMapper
         )
+
+        TrendingRepository(cacheDataSource, mainDatasource)
     }
 
     override fun getTrendingInteractor(): GetTrendingInteractor = GetTrendingInteractor(repository)

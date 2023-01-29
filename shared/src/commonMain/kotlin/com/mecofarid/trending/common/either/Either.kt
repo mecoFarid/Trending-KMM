@@ -1,9 +1,5 @@
 package com.mecofarid.trending.common.either
 
-import com.mecofarid.trending.common.data.DataException
-import io.ktor.client.call.body
-import io.ktor.client.statement.HttpResponse
-import io.ktor.http.isSuccess
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract

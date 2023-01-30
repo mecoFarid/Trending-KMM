@@ -1,5 +1,6 @@
 package com.mecofarid.trending.common.data
 
+import com.mecofarid.trending.common.data.datasource.Datasource
 import com.mecofarid.trending.common.either.Either
 
 class DatasourceMapper<I, O, E>(

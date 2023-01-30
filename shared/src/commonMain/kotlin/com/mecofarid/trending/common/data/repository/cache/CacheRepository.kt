@@ -1,8 +1,8 @@
 package com.mecofarid.trending.common.data.repository.cache
 
-import com.mecofarid.trending.common.data.Datasource
 import com.mecofarid.trending.common.data.Operation
 import com.mecofarid.trending.common.data.Query
+import com.mecofarid.trending.common.data.datasource.Datasource
 import com.mecofarid.trending.common.data.repository.Repository
 import com.mecofarid.trending.common.either.Either
 

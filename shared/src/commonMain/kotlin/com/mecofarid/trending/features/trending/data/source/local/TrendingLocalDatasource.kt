@@ -2,8 +2,8 @@ package com.mecofarid.trending.features.trending.data.source.local
 
 import TrendingResult
 import com.mecofarid.trending.common.data.DataException
-import com.mecofarid.trending.common.data.Datasource
 import com.mecofarid.trending.common.data.Query
+import com.mecofarid.trending.common.data.datasource.Datasource
 import com.mecofarid.trending.common.either.Either
 import com.mecofarid.trending.features.trending.data.query.GetAllTrendingQuery
 import com.mecofarid.trending.features.trending.data.source.local.dao.TrendingLocalEntityDao

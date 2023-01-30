@@ -1,7 +1,5 @@
 package com.mecofarid.trending.di.app
 
-import com.mecofarid.trending.common.data.DataException
-import com.mecofarid.trending.common.data.Mapper
 import com.mecofarid.trending.common.data.NetworkException
 import com.mecofarid.trending.features.trending.TrendingComponent
 import com.mecofarid.trending.features.trending.TrendingModule
@@ -48,15 +46,8 @@ class AppModule(databaseDriverFactory: DatabaseDriverFactory): AppComponent {
         }
     }
 
-    private val networkComponent by lazy {
-        val exceptionMapper = object : Mapper<DataException, DataException>{
-            override fun map(input: DataException) = DataException.DataNotFoundException(input)
-        }
-        NetworkKtorModule(client, exceptionMapper)
-    }
-
     private val module by lazy {
-        TrendingModule(DbSqldelightModule(databaseDriverFactory), networkComponent)
+        TrendingModule(DbSqldelightModule(databaseDriverFactory), NetworkKtorModule(client))
     }
     override fun trendingComponent(): TrendingComponent = module
 }

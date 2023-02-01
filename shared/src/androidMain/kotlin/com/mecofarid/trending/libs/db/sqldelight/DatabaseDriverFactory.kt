@@ -5,7 +5,6 @@ import app.cash.sqldelight.db.SqlDriver
 import app.cash.sqldelight.driver.android.AndroidSqliteDriver
 
 actual class DatabaseDriverFactory(private val context: Context) {
-    actual fun createDriver(): SqlDriver {
-        return AndroidSqliteDriver(TrendingDatabase.Schema, context, DB_NAME)
-    }
+    actual fun createDriver(dbName: String): SqlDriver =
+        AndroidSqliteDriver(TrendingDatabase.Schema, context, dbName)
 }

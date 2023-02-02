@@ -1,5 +1,30 @@
-Simple Clean Architecture KMM app implemented for both iOS and Android. 
-This app is KMM implementation of analogue apps I have developed for iOS and Android.
+# Simple Clean Architecture KMM App
+This app is KMM implementation of analogue apps I have developed for [iOS](https://github.com/mecoFarid/Trending-iOS) and [Android](https://github.com/mecoFarid/Trending-Android).
+
+## Production:
+
+### KMM
+- Kotlin Coroutines
+- MVVM pattern
+- SQLDelight
+- Ktor
+- KotlinX Serialization
+
+### Android
+- LiveData
+- Material UI
+- Glide
+- Lottie Animations
+
+### iOS
+- Combine
+- Alamofire
+- Kingfisher
+- Lottie Animations
+
+## Testing:
+- JUnit
+- Mockk
 
 | [Android](https://github.com/mecoFarid/Trending-Android) | [iOS](https://github.com/mecoFarid/Trending-iOS) |
 | --- | --- |

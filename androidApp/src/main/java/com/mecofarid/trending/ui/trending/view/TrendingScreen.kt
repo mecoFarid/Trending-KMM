@@ -14,13 +14,13 @@ import com.mecofarid.trending.features.trending.domain.model.Trending
 import com.mecofarid.trending.features.trending.ui.UiState
 import com.mecofarid.trending.ui.trending.TrendingViewModel
 
-class TrendingFragment : Fragment(){
+class TrendingScreen : Fragment(){
 
     private lateinit var binding: FragmentTrendingBinding
     private val viewModel by viewModels<TrendingViewModel> {
         TrendingViewModel.factory(requireActivity().application.appComponent().trendingComponent().getTrendingInteractor())
     }
-    private val trendingAdapter by lazy { TrendingAdapter(this) }
+    private val trendingList by lazy { TrendingList(this) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,12 +46,12 @@ class TrendingFragment : Fragment(){
 
     private fun initSuccessAdapter(){
         binding.successHolder.dataHolder.apply {
-            adapter = trendingAdapter
+            adapter = trendingList
         }
     }
 
     private fun showSuccess(trendingList: List<Trending>){
         val trendingView = trendingList.map { TrendingView(it) }
-        trendingAdapter.submitList(trendingView)
+        this.trendingList.submitList(trendingView)
     }
 }

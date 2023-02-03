@@ -18,7 +18,6 @@ android {
     }
     buildFeatures {
         compose = true
-        dataBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
@@ -37,6 +36,7 @@ android {
 
 dependencies {
     implementation(project(":shared"))
+    implementation(platform(libs.composeBom))
     implementation(libs.composeUi)
     implementation(libs.composeUiTooling)
     implementation(libs.composeUiToolingPreview)

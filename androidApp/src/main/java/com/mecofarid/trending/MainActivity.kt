@@ -1,21 +1,17 @@
 package com.mecofarid.trending
 
 import android.os.Bundle
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import com.mecofarid.trending.android.R
-import com.mecofarid.trending.android.databinding.ActivityMainBinding
-import com.mecofarid.trending.common.ui.ext.replaceFragment
-import com.mecofarid.trending.ui.trending.view.TrendingFragment
+import com.mecofarid.trending.ui.trending.view.TrendingScreen
 
 class MainActivity: AppCompatActivity() {
-    private val binding: ActivityMainBinding by lazy { DataBindingUtil.setContentView(this, R.layout.activity_main) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        addTrendingScreen()
-    }
+        setContent {
 
-    private fun addTrendingScreen(){
-        replaceFragment(TrendingFragment(), binding.container.id)
+        }
     }
 }

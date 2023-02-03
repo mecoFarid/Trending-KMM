@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mecofarid.trending.android.databinding.ItemTrendingBinding
 
-class TrendingAdapter(
+class TrendingList(
     private val provideLifecycleOwner: LifecycleOwner
-) : ListAdapter<TrendingView, TrendingAdapter.ViewHolder>(RepoDiffCallback()) {
+) : ListAdapter<TrendingView, TrendingList.ViewHolder>(RepoDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemTrendingBinding.inflate(

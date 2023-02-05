@@ -38,22 +38,19 @@ dependencies {
     implementation(project(":shared"))
     implementation(platform(libs.composeBom))
     implementation(libs.composeUi)
-    implementation(libs.composeUiTooling)
-    implementation(libs.composeUiToolingPreview)
     implementation(libs.composeFoundation)
     implementation(libs.composeMaterial)
     implementation(libs.composeActivity)
+    implementation(libs.navigation)
+    implementation(libs.composeRuntime)
+
+    debugImplementation(libs.composeUiTooling)
+    debugImplementation(libs.composeUiToolingPreview)
 
     implementation(libs.viewModelKtx)
     implementation(libs.liveDataKtx)
-    implementation(libs.fragmentKtx)
-    implementation(libs.appCompat)
-    implementation(libs.materialUi)
-    implementation(libs.constraintLayout)
-    implementation(libs.recyclerview)
-    implementation(libs.swipeRefreshLayout)
 
+    implementation(libs.coil)
     implementation(libs.lottie)
     implementation(libs.shimmer)
-    implementation(libs.glide)
 }

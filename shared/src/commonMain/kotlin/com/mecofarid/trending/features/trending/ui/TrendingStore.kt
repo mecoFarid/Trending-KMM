@@ -7,12 +7,13 @@ import com.mecofarid.trending.features.trending.data.query.GetAllTrendingQuery
 import com.mecofarid.trending.features.trending.domain.interactor.GetTrendingInteractor
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class TrendingStore(private val trendingInteractor: GetTrendingInteractor): Store() {
 
     private val internalUiState = MutableStateFlow<UiState>(UiState.Loading)
-    val uiState: Flow<UiState> = internalUiState
+    val uiState: StateFlow<UiState> = internalUiState
 
     private var state: UiState = UiState.Loading
         set(value) {

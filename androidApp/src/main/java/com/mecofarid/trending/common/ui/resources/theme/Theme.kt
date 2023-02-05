@@ -58,13 +58,15 @@ private val MaterialLightColorScheme = lightColorScheme(
 private val TrendingLightColorScheme =
     TrendingColorScheme(
         trendingItemLanguageIndicatorColor = Colors.trendingItemLanguageIndicatorColor,
-        trendingItemStarColor = Colors.trendingItemStarColor
+        trendingItemStarColor = Colors.trendingItemStarColor,
+        viewPlaceholderBg = Colors.viewPlaceholderBg
     )
 
 private val TrendingDarkColorScheme =
     TrendingColorScheme(
         trendingItemLanguageIndicatorColor = Colors.trendingItemLanguageIndicatorColor,
-        trendingItemStarColor = Colors.trendingItemStarColor
+        trendingItemStarColor = Colors.trendingItemStarColor,
+        viewPlaceholderBg = Colors.viewPlaceholderBg
     )
 
 private val LocalTrendingColorScheme = staticCompositionLocalOf<TrendingColorScheme>{
@@ -95,7 +97,8 @@ private fun ProvideTrendingColor(
 @Stable
 class TrendingColorScheme(
     trendingItemLanguageIndicatorColor: Color,
-    trendingItemStarColor: Color
+    trendingItemStarColor: Color,
+    viewPlaceholderBg: Color
 ){
     var trendingItemLanguageIndicatorColor by mutableStateOf(trendingItemLanguageIndicatorColor)
         private set
@@ -103,13 +106,18 @@ class TrendingColorScheme(
     var trendingItemStarColor by mutableStateOf(trendingItemStarColor)
         private set
 
+    var viewPlaceholderBg by mutableStateOf(viewPlaceholderBg)
+        private set
+
     fun copy() = TrendingColorScheme(
         trendingItemLanguageIndicatorColor,
-        trendingItemStarColor
+        trendingItemStarColor,
+        viewPlaceholderBg
     )
 
     fun update(other: TrendingColorScheme){
         trendingItemLanguageIndicatorColor = other.trendingItemLanguageIndicatorColor
         trendingItemStarColor = other.trendingItemStarColor
+        viewPlaceholderBg = other.viewPlaceholderBg
     }
 }

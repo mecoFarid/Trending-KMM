@@ -7,20 +7,16 @@ versionCode = "1"
 
 composeBom = "2023.01.00"
 composeCompiler = "1.4.0"
+activityCompose = "1.7.0-alpha03"
+navigation = "2.6.0-alpha04"
 
-appCompat = "1.6.0"
-materialUi = "1.7.0"
-constraintLayout = "2.1.4"
-recyclerview = '1.2.1'
-swipeRefreshLayout = "1.1.0"
 lifecycleKtx = "2.5.1"
-fragmentKtx = "1.5.5"
-
-lottie = "5.2.0"
-shimmer = "0.5.0"
-glide = "4.14.2"
 
 androidCoreTestKtx = "1.5.0"
+
+coil = "2.2.2"
+lottie = "5.2.0"
+shimmer = "1.0.4"
 
 # iOS
 deploymentTarget = "14.0"
@@ -37,30 +33,26 @@ ktor = "2.2.2"
 
 [libraries]
 #Android
-composeBom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+composeBom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
 composeUi = { module = "androidx.compose.ui:ui" }
 composeUiTooling = { module = "androidx.compose.ui:ui-tooling" }
 composeUiToolingPreview = { module = "androidx.compose.ui:ui-tooling-preview" }
 composeFoundation = { module = "androidx.compose.foundation:foundation" }
-composeActivity = { module = "androidx.activity:activity-compose" }
 composeMaterial = { module = "androidx.compose.material3:material3" }
+composeRuntime = { module = "androidx.lifecycle:lifecycle-runtime-compose"}
+composeActivity = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
+navigation = { module = "androidx.navigation:navigation-compose", version.ref ="navigation" }
 
 viewModelKtx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleKtx" }
 liveDataKtx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycleKtx" }
-fragmentKtx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragmentKtx" }
-appCompat = { module = "androidx.appcompat:appcompat", version.ref = "appCompat" }
-materialUi = { module = "com.google.android.material:material", version.ref = "materialUi" }
-constraintLayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintLayout" }
-recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
-swipeRefreshLayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swipeRefreshLayout" }
-
-lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
-shimmer = { module = "com.facebook.shimmer:shimmer", version.ref = "shimmer" }
-glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 
 sqldelightAndroidDriver = {module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
 
 ktorAndroidClient = { module = "io.ktor:ktor-client-android", version.ref = "ktor"}
+
+coil = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+lottie = { module = "com.airbnb.android:lottie-compose", version.ref = "lottie" }
+shimmer = { module = "com.valentinilk.shimmer:compose-shimmer", version.ref = "shimmer"}
 
 #iOS
 sqldelightIosDriver = {module = "app.cash.sqldelight:native-driver", version.ref = "sqlDelight" }

@@ -52,7 +52,7 @@ kotlin {
                 implementation(libs.ktorAndroidClient)
             }
         }
-        val androidTest by getting {
+        val androidUnitTest by getting {
             dependencies{
                 implementation(libs.androidCoreTestKtx)
                 implementation(libs.sqldelightJavaDriver)

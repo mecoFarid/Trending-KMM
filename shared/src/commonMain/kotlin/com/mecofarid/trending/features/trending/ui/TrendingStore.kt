@@ -5,7 +5,6 @@ import com.mecofarid.trending.common.ext.observe
 import com.mecofarid.trending.common.ui.store.Store
 import com.mecofarid.trending.features.trending.data.query.GetAllTrendingQuery
 import com.mecofarid.trending.features.trending.domain.interactor.GetTrendingInteractor
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

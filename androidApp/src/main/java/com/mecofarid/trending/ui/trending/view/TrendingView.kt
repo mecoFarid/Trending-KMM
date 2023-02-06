@@ -1,23 +1,20 @@
 package com.mecofarid.trending.ui.trending.view
 
-import androidx.annotation.DrawableRes
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.painter.ColorPainter
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.constraintlayout.compose.Dimension
 import coil.compose.AsyncImage
 import com.mecofarid.trending.android.R
 import com.mecofarid.trending.common.ext.toNA
@@ -26,14 +23,11 @@ import com.mecofarid.trending.common.ui.resources.dimen.Dimens
 import com.mecofarid.trending.common.ui.resources.theme.TrendingTheme
 import com.mecofarid.trending.features.trending.domain.model.Trending
 import com.mecofarid.trending.mocks.feature.trending.anyTrending
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 
 @Composable
 fun TrendingView(trending: Trending) {
     var showDetails by rememberSaveable { mutableStateOf(false) }
-    Column(
+    ConstraintLayout(
         Modifier
             .clickable {
                 showDetails = !showDetails
@@ -41,38 +35,61 @@ fun TrendingView(trending: Trending) {
             .padding(vertical = Dimens.gu)
             .fillMaxWidth()
     ) {
-        Row(Modifier.height(IntrinsicSize.Max)) {
-            AsyncImage(
-                model = trending.owner.avatarUrl,
-                modifier = Modifier
-                    .size(Dimens.gu_6)
-                    .clip(CircleShape),
-                placeholder = ColorPainter(TrendingTheme.colorSchema.viewPlaceholderBg),
-                contentDescription = null
-            )
-            Column(
-                Modifier.padding(start = Dimens.gu_2).fillMaxHeight(),
-                Arrangement.SpaceEvenly,
-            ) {
-                Text(text = trending.owner.login, style = MaterialTheme.typography.labelSmall)
-                Text(text = trending.name, style = MaterialTheme.typography.labelSmall)
-            }
+        val (avatar, loginAndName, details) = createRefs()
+        AsyncImage(
+            model = trending.owner.avatarUrl,
+            modifier = Modifier
+                .size(Dimens.gu_6)
+                .clip(CircleShape)
+                .constrainAs(avatar) {
+                    top.linkTo(parent.top)
+                    start.linkTo(parent.start)
+                },
+            placeholder = ColorPainter(TrendingTheme.colorSchema.viewPlaceholderBg),
+            contentDescription = null
+        )
+
+        Column(
+            Modifier
+                .constrainAs(loginAndName) {
+                    linkTo(
+                        top = avatar.top,
+                        bottom = avatar.bottom,
+                        start = avatar.end,
+                        startMargin = Dimens.gu_2,
+                        end = parent.end
+                    )
+                    width = Dimension.fillToConstraints
+                }
+        ) {
+            Text(text = trending.owner.login, style = MaterialTheme.typography.labelMedium)
+            Text(text = trending.name, style = MaterialTheme.typography.labelSmall)
         }
+
         if (showDetails)
-            DetailsView(trending)
+            DetailsView(
+                Modifier.constrainAs(details) {
+                    top.linkTo(avatar.bottom)
+                    start.linkTo(loginAndName.start)
+                    end.linkTo(parent.end)
+                    width = Dimension.fillToConstraints
+                },
+                trending
+            )
     }
 }
 
 @Composable
 private fun DetailsView(
+    modifier: Modifier = Modifier,
     trending: Trending
 ) = with(trending){
-    Column(Modifier.padding(top = Dimens.gu)) {
+    Column(modifier.padding(top = Dimens.gu)) {
         Text(
             text = descriptionText.orEmpty(),
             style = MaterialTheme.typography.labelSmall
         )
-        Row{
+        Row(Modifier.padding(top = Dimens.gu)){
             ImageText(
                 image = R.drawable.ic_star,
                 imageColor = TrendingTheme.colorSchema.trendingItemStarColor,

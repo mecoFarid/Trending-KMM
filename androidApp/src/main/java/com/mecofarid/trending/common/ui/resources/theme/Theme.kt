@@ -4,14 +4,7 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.Stable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
 import com.mecofarid.trending.common.ui.resources.color.Colors
 
@@ -44,29 +37,27 @@ object TrendingTheme {
 }
 
 private val MaterialDarkColorScheme = darkColorScheme(
-    primary = Colors.darkBlue,
-    secondary = Colors.darkBlue,
-    tertiary = Colors.darkBlue
+    primaryContainer = Colors.Orange,
+    onPrimaryContainer = Color.White
 )
 
 private val MaterialLightColorScheme = lightColorScheme(
-    primary = Colors.white,
-    secondary = Colors.white,
-    tertiary = Colors.white
+    primaryContainer = Colors.Orange,
+    onPrimaryContainer = Color.White
 )
 
 private val TrendingLightColorScheme =
     TrendingColorScheme(
-        trendingItemLanguageIndicatorColor = Colors.trendingItemLanguageIndicatorColor,
-        trendingItemStarColor = Colors.trendingItemStarColor,
-        viewPlaceholderBg = Colors.viewPlaceholderBg
+        trendingItemLanguageIndicatorColor = Colors.Blue,
+        trendingItemStarColor = Colors.Orange,
+        viewPlaceholderBg = Colors.Grey
     )
 
 private val TrendingDarkColorScheme =
     TrendingColorScheme(
-        trendingItemLanguageIndicatorColor = Colors.trendingItemLanguageIndicatorColor,
-        trendingItemStarColor = Colors.trendingItemStarColor,
-        viewPlaceholderBg = Colors.viewPlaceholderBg
+        trendingItemLanguageIndicatorColor = Colors.Blue,
+        trendingItemStarColor = Colors.Orange,
+        viewPlaceholderBg = Colors.Grey
     )
 
 private val LocalTrendingColorScheme = staticCompositionLocalOf<TrendingColorScheme>{

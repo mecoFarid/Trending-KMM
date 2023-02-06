@@ -39,10 +39,11 @@ dependencies {
     implementation(platform(libs.composeBom))
     implementation(libs.composeUi)
     implementation(libs.composeFoundation)
-    implementation(libs.composeMaterial)
+    implementation(libs.composeMaterial3)
     implementation(libs.composeActivity)
     implementation(libs.navigation)
     implementation(libs.composeRuntime)
+    implementation(libs.composeConstraintLayout)
 
     debugImplementation(libs.composeUiTooling)
     debugImplementation(libs.composeUiToolingPreview)

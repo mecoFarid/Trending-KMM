@@ -5,13 +5,11 @@ import com.mecofarid.trending.common.data.datasource.network.NetworkService
 import com.mecofarid.trending.di.network.NetworkComponent
 import com.mecofarid.trending.features.trending.data.source.remote.entity.TrendingRemoteEntity
 import com.mecofarid.trending.features.trending.data.source.remote.service.TrendingService
-import io.ktor.client.HttpClient
-import io.ktor.client.plugins.HttpResponseValidator
-import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.client.plugins.defaultRequest
-import io.ktor.http.isSuccess
-import io.ktor.serialization.kotlinx.json.json
-import io.ktor.utils.io.errors.IOException
+import io.ktor.client.*
+import io.ktor.client.plugins.*
+import io.ktor.client.plugins.contentnegotiation.*
+import io.ktor.serialization.kotlinx.json.*
+import io.ktor.utils.io.errors.*
 import kotlinx.serialization.json.Json
 
 private const val BASE_URL = "https://api.github.com"
@@ -33,13 +31,12 @@ class NetworkKtorModule: NetworkComponent {
             }
 
             HttpResponseValidator {
-                validateResponse {
-                    if (it.status.isSuccess().not())
-                        throw NetworkException.HttpException(it.status.value)
-                }
-                handleResponseExceptionWithRequest { cause, request ->
-                    if (cause is IOException)
-                        throw NetworkException.ConnectionException(cause)
+                handleResponseExceptionWithRequest { cause, _ ->
+                    throw if (cause is IOException)
+                         NetworkException.ConnectionException(cause)
+                    else if (cause is ResponseException)
+                        throw NetworkException.HttpException(cause.response.status.value)
+                    else throw cause
                 }
             }
         }

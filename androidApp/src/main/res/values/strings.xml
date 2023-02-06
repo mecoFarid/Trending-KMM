@@ -1,6 +1,3 @@
 <resources>
     <string name="app_name">Trending</string>
-    <string name="no_data_title">Something went wrong…</string>
-    <string name="no_data_message">An alien is probably blocking your signal.</string>
-    <string name="retry_btn_title">Retry</string>
 </resources>

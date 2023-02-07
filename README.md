@@ -11,9 +11,11 @@ This app is KMM implementation of analogue apps I have developed for [iOS](https
 - KotlinX Serialization
 
 ### Android
+- Jetpack Compose
+- Jetpack Compose Navigation
+- Jetpack Compose Material UI
 - LiveData
-- Material UI
-- Glide
+- Coil Android
 - Lottie Animations
 
 ### iOS

@@ -19,15 +19,20 @@ import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.airbnb.lottie.compose.*
 import com.mecofarid.trending.android.R
+import com.mecofarid.trending.common.data.DataException
+import com.mecofarid.trending.common.either.Either
 import com.mecofarid.trending.common.ui.libs.shimmer.customShimmer
 import com.mecofarid.trending.common.ui.preview.SystemUiPreview
 import com.mecofarid.trending.common.ui.resources.dimen.Dimens
 import com.mecofarid.trending.common.ui.resources.theme.TrendingTheme
+import com.mecofarid.trending.features.trending.domain.interactor.GetTrendingInteractor
 import com.mecofarid.trending.features.trending.domain.model.Trending
 import com.mecofarid.trending.features.trending.ui.UiState
 import com.mecofarid.trending.mocks.anyList
+import com.mecofarid.trending.mocks.common.data.MockRepository
 import com.mecofarid.trending.mocks.feature.trending.anyTrending
 import com.mecofarid.trending.ui.trending.TrendingViewModel
+import java.security.DigestException
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -35,16 +40,16 @@ fun TrendingScreen(viewModel: TrendingViewModel) {
     val state by viewModel.store.uiState.collectAsStateWithLifecycle()
     Scaffold(
         topBar = {
-                 CenterAlignedTopAppBar(
-                     title = {
-                         Text(
-                             text = stringResource(id = R.string.app_name),
-                             modifier = Modifier
-                                 .fillMaxSize()
-                                 .wrapContentSize(Alignment.Center)
-                         )
-                     }
-                 )
+            CenterAlignedTopAppBar(
+                title = {
+                    Text(
+                        text = stringResource(id = R.string.app_name),
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .wrapContentSize(Alignment.Center)
+                    )
+                }
+            )
         },
         floatingActionButton = {
             if (state !is UiState.Loading)
@@ -59,10 +64,11 @@ fun TrendingScreen(viewModel: TrendingViewModel) {
                 }
         },
         content = {
-            Box(modifier = Modifier
-                .padding(it)
-                .padding(horizontal = Dimens.gu_2)
-            ){
+            Box(
+                modifier = Modifier
+                    .padding(it)
+                    .padding(horizontal = Dimens.gu_2)
+            ) {
                 state.apply {
                     when (this) {
                         UiState.Loading -> Loading()
@@ -164,10 +170,14 @@ fun PreviewLoading(){
 }
 
 
-//@SystemUiPreview
-//@Composable
-//fun PreviewTrendingScreen(){
-//    TrendingTheme {
-//        TrendingScreen()
-//    }
-//}
+@SystemUiPreview
+@Composable
+fun PreviewTrendingScreen(){
+    val repository = MockRepository<List<Trending>, DataException>(
+        result = { Either.Right(anyList { anyTrending() }) }
+    )
+    val  viewModel = TrendingViewModel(GetTrendingInteractor(repository))
+    TrendingTheme {
+        TrendingScreen(viewModel)
+    }
+}

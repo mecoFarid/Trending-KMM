@@ -19,8 +19,8 @@ import coil.compose.AsyncImage
 import com.mecofarid.trending.android.R
 import com.mecofarid.trending.common.ext.toNA
 import com.mecofarid.trending.common.ui.preview.SystemUiPreview
-import com.mecofarid.trending.common.ui.resources.dimen.Dimens
-import com.mecofarid.trending.common.ui.resources.theme.TrendingTheme
+import com.mecofarid.trending.common.ui.resources.Dimens
+import com.mecofarid.trending.common.ui.resources.TrendingTheme
 import com.mecofarid.trending.features.trending.domain.model.Trending
 import com.mecofarid.trending.mocks.feature.trending.anyTrending
 

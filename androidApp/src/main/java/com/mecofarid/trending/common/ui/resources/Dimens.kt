@@ -1,4 +1,4 @@
-package com.mecofarid.trending.common.ui.resources.dimen
+package com.mecofarid.trending.common.ui.resources
 
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp

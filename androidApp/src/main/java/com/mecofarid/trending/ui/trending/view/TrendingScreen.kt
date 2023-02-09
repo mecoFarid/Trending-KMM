@@ -23,8 +23,8 @@ import com.mecofarid.trending.common.data.DataException
 import com.mecofarid.trending.common.either.Either
 import com.mecofarid.trending.common.ui.libs.shimmer.customShimmer
 import com.mecofarid.trending.common.ui.preview.SystemUiPreview
-import com.mecofarid.trending.common.ui.resources.dimen.Dimens
-import com.mecofarid.trending.common.ui.resources.theme.TrendingTheme
+import com.mecofarid.trending.common.ui.resources.Dimens
+import com.mecofarid.trending.common.ui.resources.TrendingTheme
 import com.mecofarid.trending.features.trending.domain.interactor.GetTrendingInteractor
 import com.mecofarid.trending.features.trending.domain.model.Trending
 import com.mecofarid.trending.features.trending.ui.UiState
@@ -32,7 +32,6 @@ import com.mecofarid.trending.mocks.anyList
 import com.mecofarid.trending.mocks.common.data.MockRepository
 import com.mecofarid.trending.mocks.feature.trending.anyTrending
 import com.mecofarid.trending.ui.trending.TrendingViewModel
-import java.security.DigestException
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

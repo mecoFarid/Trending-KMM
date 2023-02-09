@@ -48,9 +48,6 @@ dependencies {
     debugImplementation(libs.composeUiTooling)
     debugImplementation(libs.composeUiToolingPreview)
 
-    implementation(libs.viewModelKtx)
-    implementation(libs.liveDataKtx)
-
     implementation(libs.coil)
     implementation(libs.lottie)
     implementation(libs.shimmer)

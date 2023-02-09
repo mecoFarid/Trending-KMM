@@ -16,8 +16,8 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import com.mecofarid.trending.android.R
 import com.mecofarid.trending.common.ui.preview.SystemUiPreview
-import com.mecofarid.trending.common.ui.resources.dimen.Dimens
-import com.mecofarid.trending.common.ui.resources.theme.TrendingTheme
+import com.mecofarid.trending.common.ui.resources.Dimens
+import com.mecofarid.trending.common.ui.resources.TrendingTheme
 
 @Composable
 fun ImageText(

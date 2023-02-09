@@ -7,11 +7,10 @@ versionCode = "1"
 
 composeBom = "2023.01.00"
 composeCompiler = "1.4.0"
+composeRuntime = "2.6.0-alpha05"
 activityCompose = "1.7.0-alpha03"
 composeConstraintLayout = "1.0.1"
 navigation = "2.6.0-alpha04"
-
-lifecycleKtx = "2.5.1"
 
 androidCoreTestKtx = "1.5.0"
 
@@ -44,13 +43,10 @@ composeUiTooling = { module = "androidx.compose.ui:ui-tooling" }
 composeUiToolingPreview = { module = "androidx.compose.ui:ui-tooling-preview" }
 composeFoundation = { module = "androidx.compose.foundation:foundation" }
 composeMaterial3 = { module = "androidx.compose.material3:material3" }
-composeRuntime = { module = "androidx.lifecycle:lifecycle-runtime-compose"}
+composeRuntime = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "composeRuntime" }
 composeActivity = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
 composeConstraintLayout = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "composeConstraintLayout"}
 navigation = { module = "androidx.navigation:navigation-compose", version.ref ="navigation" }
-
-viewModelKtx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleKtx" }
-liveDataKtx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycleKtx" }
 
 sqldelightAndroidDriver = {module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
 

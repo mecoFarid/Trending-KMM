@@ -1,4 +1,4 @@
-package com.mecofarid.trending.common.ui.resources.color
+package com.mecofarid.trending.common.ui.resources
 
 import androidx.compose.ui.graphics.Color
 

@@ -9,7 +9,7 @@ class TrendingLocalEntityDao(private val trendingDatabase: TrendingDatabase) {
     private val ownerEntityQueries = trendingDatabase.ownerEntityQueries
 
     fun getAllTrending(): List<TrendingLocalEntity> =
-        trendingEntityQueries.selectAll { id, name, language, stargazersCount, description, trending_id, login, avatarUrl ->
+        trendingEntityQueries.selectAll { id, name, language, stargazersCount, description, _, login, avatarUrl ->
             TrendingLocalEntity(
                 id, name, language, stargazersCount, description,
                 TrendingLocalEntity.OwnerLocalEntity(login!!, avatarUrl)

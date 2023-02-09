@@ -20,7 +20,7 @@ class CacheRepository<T, E>(
 
     private suspend fun getSyncedData(query: Query): Either<E, T> =
         mainDatasource.get(query)
-            .map {
+            .onRight {
                 cacheDatasource.put(query, it)
                 return getCachedData(query)
             }

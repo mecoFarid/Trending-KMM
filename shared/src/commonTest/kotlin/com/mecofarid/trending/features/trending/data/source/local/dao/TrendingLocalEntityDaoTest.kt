@@ -10,7 +10,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 
-// Fixme. Could not test in Android, iOS test are not working, only tests on JVM are working
+// Fixme. Could not test in Android, iOS tests are not working, only tests on JVM are working
 open class TrendingLocalEntityDaoTest {
 
     private val sqlDriver by lazy { testSqlDelightDriver() }

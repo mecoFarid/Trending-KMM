@@ -32,6 +32,10 @@ sqlDelight = "2.0.0-alpha05"
 
 ktor = "2.2.2"
 
+kotlinCoroutinesTest = "1.6.4"
+mockk = "1.13.2"
+mockkCommon = "1.12.5"
+
 [libraries]
 #Android
 composeBom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
@@ -69,6 +73,10 @@ androidCoreTestKtx = { module = "androidx.test:core-ktx", version.ref = "android
 ktorCore = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktorClientNegotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktorKotlinxJsonSerialization = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+
+kotlinCoroutinesTest = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinCoroutinesTest" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+mockkCommon = { module = "io.mockk:mockk-common", version.ref = "mockkCommon" }
 
 
 #JVM

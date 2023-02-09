@@ -37,8 +37,8 @@ class TrendingStore(private val trendingInteractor: GetTrendingInteractor): Stor
         scope.launch {
             state = trendingInteractor(GetAllTrendingQuery(), operation)
                 .fold(
-                    { UiState.NoData },
-                    { UiState.Success(it) }
+                    ifLeft = { UiState.NoData },
+                    ifRight = { UiState.Success(it) }
                 )
         }
     }

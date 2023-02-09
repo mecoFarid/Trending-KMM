@@ -44,6 +44,8 @@ kotlin {
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
+                implementation(libs.kotlinCoroutinesTest)
+                implementation(libs.mockkCommon)
             }
         }
         val androidMain by getting {
@@ -54,6 +56,7 @@ kotlin {
         }
         val androidUnitTest by getting {
             dependencies{
+                implementation(libs.mockk)
                 implementation(libs.androidCoreTestKtx)
                 implementation(libs.sqldelightJavaDriver)
                 //Fixme: Ideally, we have to use SQLite version that is compatible with Android

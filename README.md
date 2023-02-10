@@ -32,4 +32,10 @@ This app is KMM implementation of analogue apps I have developed for [iOS](https
 
 | [Android](https://github.com/mecoFarid/Trending-Android) | [iOS](https://github.com/mecoFarid/Trending-iOS) |
 | --- | --- |
-| <img src="https://user-images.githubusercontent.com/17815721/217236078-d7a59560-8a2a-44fe-affe-a87f2d489615.gif" height="500" > | <img src="https://user-images.githubusercontent.com/17815721/212366136-41717ba2-6f56-4168-a5de-43a3b982283b.gif" height="500"> |
+| <img src="https://user-images.githubusercontent.com/17815721/218160826-821941d5-232b-41ea-bab3-89e7642d068b.gif" height="500" > | <img src="https://user-images.githubusercontent.com/17815721/218160940-d6a53072-f376-4640-b2e8-13c2003afa5d.gif" height="500"> |
+
+
+
+
+
+

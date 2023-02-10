@@ -1,0 +1,3 @@
+<resources>
+    <style name="TrendingTheme" parent="Theme.AppCompat.DayNight.NoActionBar" />
+</resources>

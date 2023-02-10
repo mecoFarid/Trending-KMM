@@ -24,6 +24,7 @@ fun TrendingTheme(
     ProvideTrendingColor(colorSchema = trendingColorSchema) {
         MaterialTheme(
             colorScheme = materialColorSchema,
+            typography = typography(),
             content = content
         )
     }
@@ -41,6 +42,8 @@ private val MaterialDarkColorScheme = darkColorScheme(
 )
 
 private val MaterialLightColorScheme = lightColorScheme(
+    surface = Color.White,
+    background = Color.White,
     primaryContainer = Colors.Orange,
     onPrimaryContainer = Color.White
 )
@@ -49,14 +52,18 @@ private val TrendingLightColorScheme =
     TrendingColorScheme(
         trendingItemLanguageIndicatorColor = Colors.Blue,
         trendingItemStarColor = Colors.Orange,
-        viewPlaceholderBg = Colors.Grey
+        viewPlaceholderBg = Colors.Grey,
+        dividerColor = Colors.LightGrey,
+        secondaryTextColor = LightThemeColors.SecondaryText
     )
 
 private val TrendingDarkColorScheme =
     TrendingColorScheme(
         trendingItemLanguageIndicatorColor = Colors.Blue,
         trendingItemStarColor = Colors.Orange,
-        viewPlaceholderBg = Colors.Grey
+        viewPlaceholderBg = Colors.Grey,
+        dividerColor = Colors.LightGrey,
+        secondaryTextColor = DarkThemeColors.SecondaryText
     )
 
 private val LocalTrendingColorScheme = staticCompositionLocalOf<TrendingColorScheme>{
@@ -88,7 +95,9 @@ private fun ProvideTrendingColor(
 class TrendingColorScheme(
     trendingItemLanguageIndicatorColor: Color,
     trendingItemStarColor: Color,
-    viewPlaceholderBg: Color
+    viewPlaceholderBg: Color,
+    dividerColor: Color,
+    secondaryTextColor: Color
 ){
     var trendingItemLanguageIndicatorColor by mutableStateOf(trendingItemLanguageIndicatorColor)
         private set
@@ -99,15 +108,25 @@ class TrendingColorScheme(
     var viewPlaceholderBg by mutableStateOf(viewPlaceholderBg)
         private set
 
+    var dividerColor by mutableStateOf(dividerColor)
+        private set
+
+    var secondaryTextColor by mutableStateOf(secondaryTextColor)
+        private set
+
     fun copy() = TrendingColorScheme(
         trendingItemLanguageIndicatorColor,
         trendingItemStarColor,
-        viewPlaceholderBg
+        viewPlaceholderBg,
+        dividerColor,
+        secondaryTextColor
     )
 
     fun update(other: TrendingColorScheme){
         trendingItemLanguageIndicatorColor = other.trendingItemLanguageIndicatorColor
         trendingItemStarColor = other.trendingItemStarColor
         viewPlaceholderBg = other.viewPlaceholderBg
+        dividerColor = other.dividerColor
+        secondaryTextColor = other.secondaryTextColor
     }
 }

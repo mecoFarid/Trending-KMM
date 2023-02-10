@@ -130,7 +130,7 @@ fun Success(trendingList: List<Trending>) {
             if (index < trendingList.lastIndex)
                 Divider(
                     thickness = Dimens.gu_0_125,
-                    color = TrendingTheme.colorSchema.viewPlaceholderBg
+                    color = TrendingTheme.colorSchema.dividerColor
                 )
         }
     }

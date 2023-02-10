@@ -2,7 +2,7 @@
 # Android
 androidGradlePlugin = "7.4.1"
 compileTargetSdk = "33"
-minSdk = "21"
+minSdk = "23"
 versionCode = "1"
 
 composeBom = "2023.01.00"

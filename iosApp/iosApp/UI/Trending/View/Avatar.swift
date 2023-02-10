@@ -14,10 +14,10 @@ struct Avatar: View{
     
     var body: some View{
         KFImage(URL(string: url ?? ""))
+            .placeholder({Color.gray})
             .resizable()
             .scaledToFit()
             .frame(width: Dimens.gu_6.rawValue, height: Dimens.gu_6.rawValue)
-            .background(Color.gray)
             .clipShape(Circle())
     }
 }

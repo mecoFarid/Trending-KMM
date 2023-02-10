@@ -32,14 +32,14 @@ fun TrendingView(trending: Trending) {
             .clickable {
                 showDetails = !showDetails
             }
-            .padding(vertical = Dimens.gu)
+            .padding(vertical = Dimens.gu_2)
             .fillMaxWidth()
     ) {
         val (avatar, loginAndName, details) = createRefs()
         AsyncImage(
             model = trending.owner.avatarUrl,
             modifier = Modifier
-                .size(Dimens.gu_6)
+                .size(Dimens.gu_4)
                 .clip(CircleShape)
                 .constrainAs(avatar) {
                     top.linkTo(parent.top)

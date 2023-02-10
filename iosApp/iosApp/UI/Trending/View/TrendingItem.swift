@@ -21,11 +21,11 @@ struct TrendingItem: View {
                 
                 VStack(alignment: .leading){
                     Text(trending.owner.login)
-                        .font(.subheadline)
+                        .font(.caption)
                         .lineLimit(1)
                     
                     Text(trending.name)
-                        .font(.caption)
+                        .font(.caption2)
                         .lineLimit(1)
                 }
                 Spacer()
@@ -33,6 +33,8 @@ struct TrendingItem: View {
             
             if isExpanded {
                 DetailsView(trending: trending)
+                // This is an ugly workaround to show DetailsView's start aligned to end of Avatar
+                    .padding(.leading, Dimens.gu_5.rawValue)
             }
             
         }

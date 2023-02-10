@@ -15,7 +15,7 @@ struct DetailsView: View{
     var body: some View{
         VStack(alignment: .leading, spacing: Dimens.gu.rawValue){
             Text(trending.descriptionText ?? "")
-                .font(.caption)
+                .font(.caption2)
             
             HStack{
                 ImageText(image: "star.fill", imageColor: .orange, text: String(trending.stargazersCount))

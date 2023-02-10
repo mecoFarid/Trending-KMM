@@ -16,11 +16,15 @@ struct ImageText: View {
     var body: some View {
         HStack{
             Image(systemName: image)
+                .resizable()
                 .foregroundColor(imageColor)
-                .imageScale(.small)
+                .frame(
+                    width: Dimens.gu_1_25.rawValue,
+                    height: Dimens.gu_1_25.rawValue
+                )
             
             Text(text)
-                .font(.caption)
+                .font(.caption2)
         }
     }
 }

@@ -17,7 +17,7 @@ struct Avatar: View{
             .placeholder({Color.gray})
             .resizable()
             .scaledToFit()
-            .frame(width: Dimens.gu_6.rawValue, height: Dimens.gu_6.rawValue)
+            .frame(width: Dimens.gu_4.rawValue, height: Dimens.gu_4.rawValue)
             .clipShape(Circle())
     }
 }

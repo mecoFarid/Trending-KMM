@@ -35,7 +35,7 @@ struct TrendingScreen: View {
                 RefreshButton(viewModel: viewModel)
             }
         }
-        .padding()
+        .padding([.leading, .trailing])
     }
 }
 
@@ -66,10 +66,20 @@ struct RefreshButton: View{
         } label: {
             Image(systemName: "goforward")
                 .foregroundColor(Color.white)
-                .frame(width: Dimens.gu_6.rawValue)
+                .frame(
+                    width: Dimens.gu_4.rawValue,
+                    height: Dimens.gu_4.rawValue
+                )
                 .padding(.all, Dimens.gu.rawValue)
                 .background(Color.orange)
-                .clipShape(Circle())
+                .clipShape(
+                    RoundedRectangle(
+                        cornerRadius: Dimens.gu_2.rawValue)
+                )
+                .shadow(
+                    radius: Dimens.gu_0_5.rawValue,
+                    y: Dimens.gu_0_5.rawValue
+                )
         }
     }
 }

@@ -8,7 +8,9 @@
 import Foundation
 
 enum Dimens: CGFloat{
+    case gu_0_5 = 4.0
     case gu = 8.0
+    case gu_1_25 = 10.0
     case gu_2 = 16.0
     case gu_3 = 24.0
     case gu_4 = 32.0

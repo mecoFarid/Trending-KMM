@@ -12,10 +12,15 @@ import shared
 
 @main
 struct TrendingApp: App {
-
+    
     var body: some Scene {
         WindowGroup{
-            TrendingScreen().environmentObject(TrendingViewModel(trendingInteractor: appComponent.trendingComponent().getTrendingInteractor()))
+            NavigationView{
+                TrendingScreen()
+                    .environmentObject(TrendingViewModel(trendingInteractor: appComponent.trendingComponent().getTrendingInteractor()))
+                    .navigationTitle("app_name")
+                    .navigationBarTitleDisplayMode(.inline)
+            }
         }
     }
 }

@@ -7,9 +7,13 @@ import com.mecofarid.trending.features.trending.data.query.GetAllTrendingQuery
 import com.mecofarid.trending.features.trending.data.query.TrendingQuery
 import com.mecofarid.trending.features.trending.data.source.remote.entity.RepoResponseRemoteEntity
 import com.mecofarid.trending.features.trending.data.source.remote.entity.TrendingRemoteEntity
-import io.ktor.client.*
-import io.ktor.client.call.*
-import io.ktor.client.request.*
+import io.ktor.client.HttpClient
+import io.ktor.client.call.body
+import io.ktor.client.request.get
+import io.ktor.client.request.parameter
+import io.ktor.client.request.url
+import io.ktor.client.request.HttpRequestBuilder
+
 
 private const val QUERY_KEY = "q"
 private const val SEARCH_URL = "search/repositories"

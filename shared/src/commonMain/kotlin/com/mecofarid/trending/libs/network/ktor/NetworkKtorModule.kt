@@ -5,11 +5,14 @@ import com.mecofarid.trending.common.data.datasource.network.NetworkService
 import com.mecofarid.trending.di.network.NetworkComponent
 import com.mecofarid.trending.features.trending.data.source.remote.entity.TrendingRemoteEntity
 import com.mecofarid.trending.features.trending.data.source.remote.service.TrendingService
-import io.ktor.client.*
-import io.ktor.client.plugins.*
-import io.ktor.client.plugins.contentnegotiation.*
-import io.ktor.serialization.kotlinx.json.*
-import io.ktor.utils.io.errors.*
+import io.ktor.client.HttpClient
+import io.ktor.client.plugins.defaultRequest
+import io.ktor.client.plugins.HttpResponseValidator
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.plugins.ResponseException
+import io.ktor.serialization.kotlinx.json.json
+import io.ktor.utils.io.errors.IOException
+
 import kotlinx.serialization.json.Json
 
 private const val BASE_URL = "https://api.github.com"

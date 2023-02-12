@@ -120,7 +120,8 @@ sealed class Either<out LEFT, out RIGHT> {
         also { if (it.isLeft()) action(it.value) }
 
     /**
-     * Returns the encapsulated value [RIGHT] if this instance represents [Either.Right] or `null` if it is [Either.Left].
+     * Returns the encapsulated value [RIGHT] if this instance represents [Either.Right]
+     * or `null` if it is [Either.Left].
      *
      * ```
      * fun test() {
@@ -153,7 +154,8 @@ sealed class Either<out LEFT, out RIGHT> {
 
 /**
  * Map, or transform, the right value [B] of this [Either] into a new [Either] with a right value of type [C].
- * Returns a new [Either] with either the original left value of type [A] or the newly transformed right value of type [C].
+ * Returns a new [Either] with either the original left value of type [A] or
+ * the newly transformed right value of type [C].
  *
  * @param f The function to bind across [Right].
  */
@@ -180,6 +182,7 @@ fun <A> A.left(): Either<A, Nothing> = Either.Left(this)
 
 fun <A> A.right(): Either<Nothing, A> = Either.Right(this)
 
+@Suppress("TooGenericExceptionCaught", "InstanceOfCheckForException")
 inline fun <reified Left: Throwable, Right> asEither(block: () -> Right): Either<Left, Right> =
     try {
         Either.Right(block())

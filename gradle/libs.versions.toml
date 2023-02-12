@@ -18,6 +18,8 @@ coil = "2.2.2"
 lottie = "5.2.0"
 shimmer = "1.0.4"
 
+detekt = "1.20.0"
+
 # iOS
 deploymentTarget = "14.0"
 
@@ -82,3 +84,4 @@ sqldelightJavaDriver = { module = "app.cash.sqldelight:sqlite-driver", version.r
 
 [plugins]
 sqlDelight = { id = "app.cash.sqldelight", version.ref = "sqlDelight" }
+detekt = { id = "io.gitlab.arturbosch.detekt" }

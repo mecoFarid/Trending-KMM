@@ -5,7 +5,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 
-abstract class Store {
+open class Store {
     protected val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
 
     fun clear() {

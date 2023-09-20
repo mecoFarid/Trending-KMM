@@ -29,7 +29,6 @@ This app is KMM implementation of analogue apps I have developed for [iOS](https
 ### iOS
 - Swift UI
 - Combine
-- Alamofire
 - Kingfisher
 - Lottie Animations
 
